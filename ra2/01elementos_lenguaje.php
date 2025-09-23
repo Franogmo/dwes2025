@@ -17,8 +17,28 @@
         echo "<p>Esto es un párrafo HTML enviado con echo.</p>";
 
         $nombre = "Juan";
-        echo "<p>Hola, $nombre, ¿cómo estás?</p>"
+        echo "<p>Hola, $nombre, ¿cómo estás?</p>";
+        echo "<p>Hola, $nombre, ¿cómo estás?</p>";
+        // Esto no sirve porque hay más de un argumento 
+        // echo("<p>Hola", $nombre, "¿cómo estás?</p>")
+        echo("<p>Hola, $nombre, ¿qué tal?</p>");
+
+        // El navegador ignora los \n dentro de las etiquetas, pero pueden actuar dentro del propio html fuera de las etiquetas.
+
+        $nombre = "María";
+        $apellidos = "Gómez";
+        echo "<br/>Mi nombre es $nombre y mi apellido es $apellidos<br/>";
+        echo "<br/>Mi nombre es" . $nombre . "y mi apellido es " . $apellidos . "<br/>";
+        echo "<br/> Uno más dos son " . 1+2 . ". Y debería salir 3.<br/>";
+
+        echo "<h4>Forma abreviada</h4>";
+        echo "<p>Cuando hay que enviar a la salida el resultado de una expresión pequeña (como una palabra), disponemos de la versión 
+        abreviada de echo que permite intercalarse en el código HTML con menos esfuerzo y más legible.</p>"
+
         ?> 
+
+  <!-- -->
+        <p></p>
         &copy; El fran   
     </body>
 </html>
