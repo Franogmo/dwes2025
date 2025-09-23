@@ -15,6 +15,9 @@
         echo "<p>La función echo emite el resultado de una expresión a la salida (del servidor al cliente web). Se puede usar como función 
         o como construcción del lenguaje (o sea, sin paréntesis)</p>";
         echo "<p>Esto es un párrafo HTML enviado con echo.</p>";
+
+        $nombre = "Juan";
+        echo "<p>Hola, $nombre, ¿cómo estás?</p>"
         ?> 
         &copy; El fran
     </body>
