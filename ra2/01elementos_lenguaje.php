@@ -19,6 +19,6 @@
         $nombre = "Juan";
         echo "<p>Hola, $nombre, ¿cómo estás?</p>"
         ?> 
-        &copy; El fran
+        &copy; El fran   
     </body>
 </html>
