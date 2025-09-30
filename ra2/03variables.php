@@ -34,7 +34,26 @@
         echo "<p>El tipo de datos de $resultado es " . gettype($resultado) . "</p>";
         echo "<p>El tipo de datos de $nombre es " . gettype($nombre) . "</p>";
         ?>
-        <p>Debería salir </p>
+        <h3>Función empty</h3>
+        <p>Devuelve true si la variable está vacía</p>
+        <p>Devuelve true si contiene valores nulos o falsos (como la cadena vacía)</p>
+        <p>Lanza error si le introduces una variable sin definir.</p>
+        <h3>Función isset</h3>
+        <p>Devuelve true si la variable no existe, no está definida O contiene un valor null.</p>
+        <h2>Funciones que valoran el tipo de dato<h2>
+        <p>is_bool(), is_int(), is_float(), is_string(), is_array()</p>
+        <h2>Constantes</h2>
+        <p>Valor con nombre, que no puede alterarse después de ser asignado. Se suelen escribir en mayúsculas y no se pueden interpolar.</p>
+        <p>Se pueden asignar mediante la función define() --\> define("PI", 3.1416); </p>
+        <p>Se pueden asignar mediante la palabra clave const --\>  const PI = 3.1416;</p>
+        <p>Una constante sólo se puede usar en un script.</p>
+        <p>PHP tiene CONSTANTES PREDEFINIDAS (Llamadas constantes mágicas):</p>
+        <ul>
+            <li>__LINE__ dice la línea de código en la que estamos</li>
+            <li>__FILE__ dice la ruta  completa en el que está este archivo</li>
+            <li>__DIR__ dice la ruta completa del DIRECTORIO en el que está el archivo, pero sin incluir el archivo.</li>
+            <li>Se usan mucho para detectar excepciones alzadas a mano, y para testeo en general.</li>
+        </ul>
 
     </body>
 </html>
