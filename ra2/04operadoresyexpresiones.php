@@ -26,7 +26,7 @@
         <p>+,-,*,/,%,** (Los de siempre, vaya)</p>
         <p>+ convierte cadenas a enteros (y si tienen letras alza advertencia) y - multiplica por -1</p>
         <h3>relacionales</h3>
-        <p>(==, ===, !=, !==, <, >, <=, >=). Los comparadores de mayor y menor pueden comparar cadenas por el orden ASCII aumentado.</p>
+        <p>(==, ===, !=, !==, <, >, <=, >=). Los comparadores de mayor y menor pueden comparar cadenas por el orden ASCII.</p>
         <p><=> ("Nave espacial") detecta si el operando 1 es menor, mayor o igual que el operando 2. Devuelve -1 si es menor, 0 si es igual y
         1 si es mayor.</p>
         <p></p>
@@ -36,7 +36,21 @@
         $n2 = 8;
         $resultado  = $n1 <=> $n2;
 
-        echo "<p>El resultado es $resultado</p>";
+        echo "<p>El resultado de 5 <=> 8 es $resultado</p>";
         ?>
+        <p>strtoupper() convierte cadenas a todo mayúsculas y strtolower() a todo minúsculas.</p>
+        <h2>Operadores lógicos</h2>
+        <p>AND, OR, ! (! equivale a NOT)</p>
+        <p>XOR (True si UNA de las expresiones es true. False si 2 o cero de las expresiones son true.)</p>
+        <p>&& -- AND prioritario</p>
+        <p>|| -- OR prioritario</p>
+        <p>Precedencia de operadores lógicos: not antes de and antes de xor antes de or (y || antes de and porque es el or prioritario).</p>
+        <p>DIVISIÓN, MULTIPLICACIÓN Y RESTO TIENEN LA MISMA PRECEDENCIA.</p>
+        <br><br><br>
+        <h6>ESTILOS DE CODIFICACIÓN<h6>
+        <p>Variables, métodos, variables de instancia y otros identificadores: camelCase</p>
+        <p>Clases: PascalCase</p>
+        <p>Constantes y variables de clase: GREAT_SNAKE_CASE</p>
+
     </body>
 </html>

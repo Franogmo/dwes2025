@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>sexto script en php. Estructuras de control</title>
+    </head>
+    <body>
+        <h1>Estructuras de control</h1>
+        <p>Las sentencias terminan con ; y se pueden agrupar varias en una misma línea.</p>
+        <p>Tb se pueden agrupar en un bloque de sentencias delimitado entre claves {}, pero no tiene apenas sentido hacer esto fuera de una estructura
+             de control
+        </p>
+        <h2>Condicional simple</h2>
+        <p> if (condición) {acción} else {acción};</p>
+        <p>Se puede hacer sin identar pero queda menos legible. Tb se puede hacer sin claves, pero sólo si la acción está después del if
+             o el else.
+        </p>
+        <p>Se puede poner codigo html a lo bruto y cerrar php dentro de unas claves</p>
+        <?php
+
+use function PHPSTORM_META\map;
+
+        $tipoCarnet = "C1";
+        if ($tipoCarnet === "C1") 
+            echo <<<CARNETB1
+            <h4>Documentación para solicitar la tarjeta de transporte</h4>
+            <ul>
+                <li>Fotocopia del carnet de conducir</li>
+                <li>certificado de penasles</li>
+                <li>Carnet B2</li>
+            </ul>
+            CARNETB1;
+
+        ?>
+        <p>Se pueden meter ifs dentro de otros.</p>
+        <?php 
+
+        
+        $nota = 6.5;
+        if ($nota >= 0 && $nota < 5) {
+            echo "SUSPENSO";
+        }
+        else {
+            if ($nota < 6 ) {
+                echo "SUFICIENTE";
+            }
+            else {
+                if ($nota < 7) {
+                    echo "BIEN";
+                }
+                else {
+                    if ($nota < 9) {
+                        echo "NOTABLE";
+                    }
+                    else {
+                        if ($nota) {
+                            echo "Sobresaliente";
+                        }
+                        else {echo "Error";}
+                    }
+                }
+            }
+        };
+        
+        echo "<p>PHP también tiene else ifs (pero no elifs)</p>";
+
+        if ($nota >= 0 && $nota < 5) {echo "SUSPENSO";}
+        else if ($nota < 6) {echo "SUFICIENTE";}
+        else if ($nota < 7) {echo "BIEN";}
+        else if ($nota < 9) {echo "NOTABLE";}
+        else if ($nota <= 10) {echo "SOBRESALIENTE";}
+        else {echo "ERROR";};
+
+        $nota2 = 8;
+
+        echo "<p>y switch cases.</p>";
+
+        echo "<p>este man tiene un ";
+
+        switch ($nota2) {
+            case 0:
+            case 1:
+            case 2:
+            case 3:
+            case 4: 
+                echo "Suspenso"; break;
+            case 5: echo "Aprobado"; break;
+            case 6: echo "Bien"; break;
+            case 7:
+            case 8:
+                echo "Notable"; break;
+            case 9:
+            case 10:
+                echo "Sobresaliente"; break;
+            default: echo "¿Qué?";
+        }
+        echo "</p>";
+        ?>
+        <h3>Expresión match</h3>
+        <p>$resultado = match(valor) {valor1 => accion, valor2 => accion, ..., default => accion}; El default siempre es opcional.<p>
+        <?php 
+        $calificacion = match($nota2) {
+            0, 1, 2, 3, 4 => "SUSpenso",
+            5 => "SUficiente",
+            6 => "BIen",
+            7, 8 => "NOtable",
+            9, 10 => "SObresaliente",
+            default => "Errorsaco" 
+        };
+
+        echo "<p> Tienes un $calificacion </p>";
+        
+        ?>
+        <h3>Operador ternario</h3>
+        <p>condición ? accion si true : accion si false;</p>
+        <p>Es básicamente un if-else cortito.</p>
+        <h3>Operador de fusión de null</h3>
+        <p>$resultado = $metodo ?? $metodo2 ?? $defaultmethod;</p>
+        <p>Comprueba todos los valores asignables uno a uno hasta que alguno NO esté nulo. Si están todos nulos, asigna el último.
+        <?php 
+        $metodo = "POST";
+        $metodo2 = "GET";
+        $defaultmethod = "main";
+
+        $resultado = $metodo ?? $metodo2 ?? $defaultmethod;
+        echo "<p>El resultado es $resultado</p>";
+        ?>
+        <h2>Bucles</h2>
+        <p>For con contador, for para colecciones de datos (for each), while, do while, sentencias break y continue</p>
+        <h3>Bucle for con contador</h3>
+        <p>Es como el de JS</p>
+        <p>Se puede hacer hacia atrás usando el decremento ($i--)</p>
+        <p>for ($i=10 , $j = 0; $i >= 5 && $j < 8; $i--, $j++) es un for válido<p>
+        <?php 
+        $num = 4;
+        echo "<p>La tabla de multiplicar del $num: <br>";
+        for ($i = 1; $i <= 10; $i++) {
+            echo "$num x $i = " . ($num * $i) . "<br>";
+        };
+        echo "</p>";
+        ?>
+    </body>
+</html>
