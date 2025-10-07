@@ -140,5 +140,39 @@ use function PHPSTORM_META\map;
         };
         echo "</p>";
         ?>
+        <h3>Bucle while</h3>
+        <p>while (condicion) {accion};</p>
+        <h6>rand(minimo inclusive, máximo inclusive);<h6>
+        <h3>Do while</h3>
+        <p>do {accion} while (condición);</p>
+        <h3>Sentencias break y continue</h3>
+        <p>Break se sale del bucle directamente</p>
+        <p>Continue se sale de la iteración pero, si sigue dándose la condición, continúa dentro del bucle.</p>
+        <p>Cuando hay bucles anidados, break admite un argumento numérico entero que indica de qué bucle se sale</p>
+        <?php 
+        
+        echo "<p>";
+        for($i = 0; $i < 200 ; $i++) {
+            $numero = rand(1,1000);
+            $primos = 0;
+            echo "Se ha generado el numero $numero";
+            for($j = 1; $j <= $numero; $j++) {
+                $raiz = intval($j ** 0.5);
+                while($raiz > 1) {
+                    if ($numero % $raiz === 0) {break;};
+                    $raiz--;
+                };
+                if ($raiz === 1) {
+                    $primos++;
+                    echo "El número $j es primo<br>";
+                    echo "Encontrados $primos numeros primos<br>"
+                };
+                if ($primos > 10) {break 2;};
+            };
+        };
+        echo "</p>";
+        ?>
+        <h3>Bucle foreach</h3>
+        <p>Se da luego</p>
     </body>
 </html>
