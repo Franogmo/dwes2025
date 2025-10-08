@@ -33,5 +33,6 @@
         <p>Arrays en el que todos sus elementos son arrays.</p>
         <p>Se buscan elementos concretos dentro de estos con 2 corchetes.</p> 
         <p>$tablafutbolistas[1]['nombre'];  Buscaría el nombre del segundo futbolista.</p>
+        <p>borrar<p>
     </body>
 </html>
