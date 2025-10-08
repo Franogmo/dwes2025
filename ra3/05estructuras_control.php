@@ -142,7 +142,7 @@ use function PHPSTORM_META\map;
         ?>
         <h3>Bucle while</h3>
         <p>while (condicion) {accion};</p>
-        <h6>rand(minimo inclusive, máximo inclusive);<h6>
+        <h5>rand(minimo inclusive, máximo inclusive);<h5>
         <h3>Do while</h3>
         <p>do {accion} while (condición);</p>
         <h3>Sentencias break y continue</h3>
@@ -165,11 +165,31 @@ use function PHPSTORM_META\map;
                 if ($raiz === 1) {
                     $primos++;
                     echo "El número $j es primo<br>";
-                    echo "Encontrados $primos numeros primos<br>"
+                    echo "Encontrados $primos numeros primos<br>";
                 };
                 if ($primos > 10) {break 2;};
             };
         };
+        echo "</p>";
+        ?>
+        <h4>Continue</h4>
+        <?php 
+        echo "<p>";
+        $num2 = rand(0,20);
+        /*
+        CORREGIR LUEGO. DA BUCLE INFINITO
+
+        $impares = 0;
+        $multiplos3 = 0;
+        while ($num2) {
+            echo "El numero generado es $num2";
+            if ($num2 % 3 == 0) {$multiplos3++; rand(0,20); continue;};
+            if ($num2 % 2 == 0) {$impares++;};
+            $num2 = rand(0,20);
+        };
+        echo "Se han generado $multiplos3 múltiplos de 3 y $impares impares";
+        */
+        
         echo "</p>";
         ?>
         <h3>Bucle foreach</h3>
