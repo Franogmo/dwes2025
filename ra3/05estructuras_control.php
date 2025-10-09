@@ -102,7 +102,7 @@ use function PHPSTORM_META\map;
         <?php 
         $calificacion = match($nota2) {
             0, 1, 2, 3, 4 => "SUSpenso",
-            5 => "SUficiente",
+            5 => "Suficiente",
             6 => "BIen",
             7, 8 => "NOtable",
             9, 10 => "SObresaliente",

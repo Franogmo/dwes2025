@@ -63,7 +63,7 @@
         $componentes['caja'] = "Caja con fuente 700w";
         $componentes['monitor'] = "Monitor UHD 4K 23\"";
         foreach($componentes as $componente) {
-            echo "El ordenador de Perico de los palotes tiene $componente<br>";
+            echo "El ordenador de Johnny tiene $componente<br>";
         };
         echo "</p>";
         ?>
