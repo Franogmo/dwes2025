@@ -119,6 +119,6 @@
           &lt;Clase&gt; (para clases), array</p>
         <p>Cada tipo puede ir precedido de ? indicando que se espera un arg de ese tipo o un valor nulo.</p>
 
-        <p>ẃéŕýúíóṕáśǵj́ḱĺźćǘńḿ</p>
+        <p>ẃéŕýúíóṕáśǵj́ḱĺźćǘńḿ.</p>
     </body>
 </html>

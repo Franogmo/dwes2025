@@ -70,42 +70,5 @@
         <h2>Funciones para arrays</h2>
         <p>array_key_exists(clave, array) = Devuelve true si existe una clave dada en un array dado</p>
         <p>array_search() (investigar)</p>
-
-        <h1>funciones</h1>
-        <h2>Internas</h2>
-        <p>Propias de php</p>
-        <h2>Métodos</h2>
-        <p>Funciones definidas dentro de una clase de objeto</p>
-        <h2>De usuario</h2>
-        <p>Las define el usuario</p>
-        <h3>Definición de una función</h3>
-        <p>Antes de utilizar una función hay que definirla. En su definición se indica nombre de la función.
-            Conjunto de parametros o argumentos. Sentencias de la función incluyendo el return.
-        </p>
-        <pre>Sintaxis function nombreFuncion(param1, param2...){
-            sentencias; 
-            return (acción);
-        }
-        </pre> 
-        <h3>Paso de prámetros</h3>
-        <p>Parámetro formal: son variables. Se les llama parámetros</p>
-        <p>Parámetro real: El que se introduce cuando se llama a la función. 
-            Puede ser una expresión de cualquier tipo. Se les llama argumentos.</p>
-        <?php
-        define("PI", 3.14); 
-        function areaTriangulo($base, $altura) {
-            $area = ($base * $altura) / 2;
-            return $area;
-        };
-
-        ?>
-        <p>Y las invocamos así:</p>
-        <p>
-            <?php 
-            $areaTri = areaTriangulo(5, 4);
-            echo "El área del triángulo de base 5 y altura 4 es de $areaTri";
-            ?>
-        </p>
-        
     </body>
 </html>
