@@ -113,11 +113,63 @@
         (Tipado fuerte)</h2>
         <p>Puedo indicar un tipo de datos a cada param en la definicion de la funcion. Al invocar 
           la función se intenta convertir el arg al tipo indicado para el param y si no puede 
-          entonces se dispara la excepcion TypeError. Y si sí puede hacer la conversión, continúa.
+          entonces se dispara la excepcion TypeError. Y si sí que puede hacer la conversión, continúa.
         </p>
         <p>Tipos de datos: int, float, boolean, string, callable (pa funciones almacenadas), object, 
           &lt;Clase&gt; (para clases), array</p>
         <p>Cada tipo puede ir precedido de ? indicando que se espera un arg de ese tipo o un valor nulo.</p>
+        <pre>
+          function areaRectangulo (float $base, float $altura) {
+          $area = $base * $altura;
+          return $area;
+          };
+        </pre>
+        <?php 
+        function areaRectangulo (float $base, float $altura) {
+          $area = $base * $altura;
+          return $area;
+        };
+        echo "<p>El área del rectángulo de base 8 y altura 5 es de " . areaRectangulo(8,5) . "</p>";
+        echo "<p>El área del rectángulo de base '9' y altura 5 es de " . areaRectangulo("9", 4) . "</p>";
+        echo "<p>El área del rectángulo de base 5 y altura '9zk' te da error </p>";
+        ?>
+        <pre>
+          function areaRectangulo2 (float $base, float $altura): ?float {
+          $area = $base * $altura;
+          return $area;
+          };
+        </pre>
+        <?php 
+        function areaRectangulo2 (float $base, float $altura): ?float {
+          if ($base < 0 || $altura < 0) {$area = null;}
+          else {$area = $base * $altura;};
+          return $area;
+          };
+          echo "<p>área del rectángulo con base negativa: ";
+          $area = areaRectangulo2(-5, 8);
+          echo $area ? $area : "El valor ha sido nulo";
+          echo "</p>";
+        ?>
+        <h3>Parámetros con nombre (en la llamada)</h3>
+        <p>Consiste en usar el nombre de un param en la invocación de la función. Esto supone:</p>
+        <ul>
+          <li>El valor del arg se pasa mediante una expresión de asignación sin el $ en la forma param : expr</li>
+          <li>No es necesario respetar el orden de definicion de los params en la invocacion</li>
+        </ul>
+        <pre>$volumen = volumenCilindro(altura : 5, radio : 8);</pre>
+        <?php 
+        $volumen = volumenCilindro(radio : 8, altura : 5);
+        echo "<p>(ORDEN RESPETADO) El volumen del cilindro de radio 8 y altura 5 es $volumen</p>";
+        $volumen = volumenCilindro(altura : 5, radio : 8);
+        echo "<p>(ORDEN NO RESPETADO) El volumen del cilindro de radio 8 y altura 5 es $volumen</p>";
+        ?>
+        <h3>Valor de devolución</h3>
+        <p>Una función devolver varios resultados dentro de un array, y estos se pueden sacar en varias variables
+          con la función list. (Ejemplo: función k devuelve área y perimetro de un circulo)
+        </p>
+        <pre>list($areaCirculo, $longCircunfe) = areaLongitudCircunfe(5);</pre>
+
+
 
         <p>ẃéŕýúíóṕáśǵj́ḱĺźćǘńḿ.</p>
     </body>
