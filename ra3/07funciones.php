@@ -168,6 +168,105 @@
           con la función list. (Ejemplo: función k devuelve área y perimetro de un circulo)
         </p>
         <pre>list($areaCirculo, $longCircunfe) = areaLongitudCircunfe(5);</pre>
+        <h2>Ámbito de las variables</h2>
+        <h3>Variables globales y cómo acceder a ellas</h3>
+        <p>Se deben definir como globales. Se puede acceder a ellas con el array superglobal $GLOBALS</p>
+        <p>Se pueden modificar dentro de una función</p>
+        <h3>Variables estáticas</h3>
+        <p>Se deben definir como estáticas. Están dentro de la función y conservan su valor</p>
+
+        <?php 
+        $a = 9;
+        $b = 5;
+
+        function suma() {
+          global $a, $b;
+          $suma = $a + $b;
+          return $suma;
+        };
+
+        $suma = suma();
+        echo "<p>la suma de $a + $b es $suma</p>";
+
+        function suma2() {
+          $suma = $GLOBALS['a'] + $GLOBALS['b'];
+          return $suma;
+        };
+
+        $suma2 = suma2();
+        echo "<p>la suma de $a + $b es $suma2</p>";
+
+        function contadorEjecuciones() {
+          static $contador = 1; // Las estáticas sólo se inicializan la primera vez k s usa la función.
+          echo "<p>Esta función se ha usado $contador veces</p>";
+          $contador++;
+        };
+
+        contadorEjecuciones();
+        contadorEjecuciones();
+        contadorEjecuciones();
+        ?>
+
+        <h2>Número indeterminado de parámetros</h2>
+        <p>Se usa el operador de expansión ...</p>
+        <p>Los argumentos adicionales se recogen en un array escalar.</p>
+        <pre>
+          function media (...$numeros) {
+          $total = 0;
+          foreach ($numeros as $num) {
+            $total += $num;
+          };
+          return $total / count($numeros);
+        };
+
+        $n1 = 8;
+        $n2 = 6;
+        $n3 = 5;
+
+        $mediaArit = ($n1, 8, $n2, 9, n3, 10);
+        </pre>
+        <?php 
+        function media (...$numeros) {
+          $total = 0;
+          foreach ($numeros as $num) {
+            $total += $num;
+          };
+          return $total / count($numeros);
+        };
+
+        $n1 = 8;
+        $n2 = 6;
+        $n3 = 5;
+
+        $mediaArit = media($n1, 8, $n2, 9, $n3, 10);
+        echo "<p>La media es $mediaArit</p>";
+        ?>
+        <h2>Recursividad</h2>
+        <p>Cuando una función se invoca a sí misma, siempre dentro de una estructura de control.
+          (o si no causa fallo porque sobrecarga el programa)
+      </p>
+        <?php 
+        // n! = n * (n - 1)!
+        // 4! = 4 * 3 * 2 * 1
+        // Sólo para enteros positivos sin cero.
+        function factorial ($n) {
+          if ($n > 1) {
+            $factorial = $n * factorial($n - 1);
+          }
+          else {return 1;};
+          return $factorial;
+        };
+
+        $factorial = factorial(5);
+        echo "<p>El factorial de 5 es $factorial</p>";
+        ?>
+        <h2>Funciones anónimas y funciones flecha</h2>
+        <p>No tienen nombre. Se asignan a variables.</p>
+        <pre></pre>
+        <?php 
+        $paraSumar = function ($a, $b) {return ($a + $b);};
+        $resultado = $paraSumar(5, 8);
+        ?>
 
 
 
