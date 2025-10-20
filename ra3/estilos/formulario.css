@@ -1,0 +1,46 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  width:80%;
+  margin: 1em auto;
+  border: 1px solid blue;
+  font: 14pt sans-serif;
+  padding: 0.5em;
+}
+
+header {
+  text-align: center;
+  font-size: 2em;
+}
+
+fieldset {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.2em;
+  margin-bottom: 1em;
+  justify-items:  flex-start;
+  align-items: center;
+}
+
+label {
+  justify-self: flex-end;
+  color: darkblue;
+}
+
+input, select, option, textarea, button {
+  padding: 0.2em;
+  font: inherit;
+
+}
+
+form {
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+}
+
+form img {
+  width: 128px;
+}
