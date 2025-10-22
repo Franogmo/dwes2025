@@ -268,6 +268,105 @@
         $resultado = $paraSumar(5, 8);
         ?>
 
+        <h2>Funciones anónimas y funciones flecha</h2>
+<p>Función anónima es aquella que no tiene nombre. Se emplean para construir una 
+  expresión de función en la que la función se asigna a una variable. <br>
+<p>Función flecha es una forma reducida de expresar una función anónima cuando solo 
+  tiene una expresión como sentencia</p>
+<?php
+// Declarar una función anónima.
+// Con la palabra clave function y sin nombre pero con paréntesis y lista de parámetros.
+
+// Para argumentos de tipo callable
+
+$suma = function($a, $b) {
+  $suma = $a + $b;
+  return $suma;
+};
+
+$resultado = $suma(5, 8);
+echo "<p>El resultado de sumar 5 y 8 es $resultado</p>";
+
+echo "<p>El tipo de la variable \$suma es "  . gettype($suma) . "</p>";
+
+$nombre = function () {
+  return "Juan";
+};
+
+function saludar($nombre) {
+  echo "<p>¡Hola, $nombre! Me alegro de verte";
+}
+
+saludar($nombre());
+
+$n1 = 8;
+$n2 = 6;
+$resta = function() use($n1, $n2) {
+  echo "<p>La resta de $n1 y $n2 es " . ($n1 - $n2) . "</p>";
+};
+
+$resta();
+
+// Función flecha
+// Tipo especial de función anónima
+// Sintaxis: fn(<parametros>) => <expresión>;
+
+
+$doble = fn($numero) => $numero * 2;
+
+$doble3 = $doble(3);
+echo "<p>El doble de 3 es $doble3</p>";
+
+// A diferencia de la función anónima, la función flecha siempre devuelve un valor y además
+// será el de la expresión que contiene. 
+// NO hay que usar use() para utilizar las variables definidas en el script.
+
+$numero = 8;
+$multiplo = fn($n) => $n * $numero;
+$multiplo6 = $multiplo(6);
+echo "<p>El múltiplo de 6 por $numero es $multiplo6</p>";
+
+// El uso principal de las funciones fleca es como argumento callable en otras funciones.
+// Ejemplo: función array_map()
+$numeros = [ 3, 4, 5, 6, 7, 8];
+$cuadrados = array_map( fn($x) => $x * $x , $numeros);
+echo "<p>";
+foreach( $cuadrados as $c ) {
+  echo "$c ";
+}
+echo "</p>";
+
+/* Lo anterior equivale a esto
+$cuadrados = [];
+foreach($numeros as $n) {
+  $cuadrados[] = $n * $n;
+}
+*/
+
+// Otro ejemplo: función array_filter()
+$numeros = [ 3, 4, 5, 6, 7, 8];
+$mayores5 = array_filter($numeros, fn($x) => $x > 5);
+echo "<p>";
+foreach($mayores5 as $m5) {
+  echo "$m5 ";
+}
+echo "</p>";
+
+// Otro ejemplo con una función anónima
+$numeros = [ 9, -3, 5, 6, -1, -8];
+$positivos = array_filter($numeros, function($n) {
+  if( $n > 0 ) return true;
+  else return false;
+
+  //return $n > 0;
+});
+
+echo "<p>";
+foreach($positivos as $p) {
+  echo "$p ";
+}
+echo "</p>";
+?>
 
 
         <p>ẃéŕýúíóṕáśǵj́ḱĺźćǘńḿ.</p>
