@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones2.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/dwes2025/include/funciones2.php");
 
 function inicioHtml(string $titulo = "Sin título", array $estilos = []) { ?>
   <!DOCTYPE html>

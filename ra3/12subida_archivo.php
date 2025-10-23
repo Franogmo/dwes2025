@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/dwes2025/include/funciones.php");
 /*
 SUBIDA DE ARCHIVOS EN PHP
 -------------------------
@@ -71,12 +71,65 @@ SUBIDA DE ARCHIVOS EN PHP
 // Límite para el archivo pdf: 256 KB
 // Límite para el archivo jpg: 512 KB
 
-define("DIRECTORIO_SUBIDA", "/archivos_cv");
+define("DIRECTORIO_SUBIDA", $_SERVER['DOCUMENT_ROOT'] . "/archivos_cv");
 
-inicioHtml("Subida de archivos", ["/estilos/general.css", "/estilos/formulario.css"]);
+inicioHtml("Subida de archivos", ["dwes2025/estilos/general.css", "dwes2025/estilos/formulario.css"]);
 
 if( $_SERVER['REQUEST_METHOD'] === "POST" ) {
   // Procesamos el formulario
+
+  // 1º Comprobamos si el direc de subida esite y si no, se crea.
+  if (!file_exists(DIRECTORIO_SUBIDA) || !is_dir(DIRECTORIO_SUBIDA)) {
+    if (!mkdir(DIRECTORIO_SUBIDA, 0775)) {
+      echo "<h3>Error en la creación del directorio de subida</h3>";
+      exit(1);
+    }
+  }
+  // (Si no deja crear este archivo por falta de permisos ->) Desde bash
+  // setfacl -m u:www-data:rwx /var/www/dwes.com
+
+  // 2º Acceder al archivo subido
+  // Array superglobal $_FILES
+  // Contiene la info de los archivos k se han subido. es un array asociativo donde la clave de 
+  // indexación es el nombre del campo file del formulario
+
+  /*
+  Cada elemento del array tiene info del archivo en otro array asociativo. Copiar del github
+  de Rafa los detalles.
+  
+  */
+  // Comprobamos si hay una clave para el archivo de subida
+  if (!isset($_FILES['archivo_cv']) ) {
+    echo "<h3>Error en la subida del archivo. El nombre del control de formulario no es válido</h3>";
+    exit(2);
+  }
+
+  // Si existe, vamos a visualizarla
+  echo "<pre>Nombre de archivo: {$_FILES['archivo_cv']['name']}
+  Tipo de archivo: {$_FILES['archivo_cv']['type']}
+  Tamaño (bytes): {$_FILES['archivo_cv']['size']}
+  Archivo temporal: {$_FILES['archivo_cv']['tmp_name']}
+  Código de error: {$_FILES['archivo_cv']['error']}</pre>";
+
+  if ($_FILES['archivo_cv']['error'] === UPLOAD_ERR_FORM_SIZE) {
+    echo "<h3>Error en la subida del archivo. El tamaño del archivo supera el límite MAX_FILE_SIZE</h3>";
+    exit(3);
+  }
+
+    if ($_FILES['archivo_cv']['error'] === UPLOAD_ERR_INI_SIZE) {
+    echo "<h3>Error en la subida del archivo. El tamaño del archivo supera el límite php.ini</h3>";
+    exit(4);
+  }
+
+      if ($_FILES['archivo_cv']['error'] === UPLOAD_ERR_NO_FILE) {
+    echo "<h3>Error en la subida del archivo. El usuario no ha proporcionado un archivo</h3>";
+    exit(5);
+  }
+
+   // if ($_FILES['archivo_cv']['error'] === UPLOAD_ERR_OK) {
+    // echo "<h3>Error en la subida del archivo. El tamaño del archivo supera MAX_FILE_SIZE</h3>";
+    // exit(6);
+  }
 
 
 }
