@@ -55,7 +55,7 @@ SUBIDA DE ARCHIVOS EN PHP
   escritura sobre el directorio padre.
 
   Enfoque del script:
-    - Página autoprocesadad o autogenerada.
+    - Página autoprocesada o autogenerada.
     - Se suben archivos de forma cíclica
     - Petición GET: Se presenta el formulario.
     - Petición POST:

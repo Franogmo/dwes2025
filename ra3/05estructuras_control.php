@@ -193,6 +193,10 @@ use function PHPSTORM_META\map;
         echo "</p>";
         ?>
         <h3>Bucle foreach</h3>
-        <p>Se da luego</p>
+        <pre>
+            foreach ($array_aleatorios as $n) {
+            echo "<p>$n</p>";
+            };
+        </pre>
     </body>
 </html>

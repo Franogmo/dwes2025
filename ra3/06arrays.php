@@ -69,6 +69,6 @@
         ?>
         <h2>Funciones para arrays</h2>
         <p>array_key_exists(clave, array) = Devuelve true si existe una clave dada en un array dado</p>
-        <p>array_search() (investigar)</p>
+        <p>array_search() = Searches the array for a given value and returns the first corresponding key if successful</p>
     </body>
 </html>
