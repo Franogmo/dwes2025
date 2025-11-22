@@ -223,11 +223,11 @@ function presentarDatos(array $datos, string $titulo ): void {
    echo "<h3>Datos saneados con $titulo</h3>";
     echo "<p>";
     foreach($datos as $clave => $valor) {
-      if( gettype($valor) == "array") $valor = implode(", ", $valor);
+      if( gettype($valor) == "array") $valor = implode(", ", $valor){}
       echo "{$clave}: {$valor}<br>";
-    }
+    };
     echo "</p>";
-}
+};
 
 inicioHtml("Sanear y validar datos de formulario",
   ["/estilos/general.css", "/estilos/formulario.css"]);

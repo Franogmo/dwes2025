@@ -1,5 +1,5 @@
 <?php
-require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/dwes2025/include/funciones.php");
 
 function gestionaArchivo(string $nombre, array $tiposPermitidos): int {
   echo <<<ARCHIVO
@@ -173,6 +173,7 @@ if( $_SERVER['REQUEST_METHOD'] === "POST" ) {
   echo "<p>Nombre: {$_POST['nombre']}</p>";
   
   $archivosSubidos = array_keys($_FILES);
+  echo implode($archivosSubidos);
   $tiposPermitidos = [
     'archivo_cv' => ["application/pdf"] ,
     'archivo_png' => ["image/png", "image/jpeg"]
