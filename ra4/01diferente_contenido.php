@@ -17,11 +17,11 @@ Encabecezados o Cabeceras HTTP
 
 */
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/dwes2025/include/funciones.php");
 
 // Si se envía una petición GET sin el nombre de archivo -> Se presenta la lista de archivos.
 // Si se envía una petición POST o una petición GET con el nombre de archivo -> Se descarga el archivo
-define("DIRECTORIO", $_SERVER['DOCUMENT_ROOT'] . "/archivos_ra4");
+define("DIRECTORIO", $_SERVER['DOCUMENT_ROOT'] . "/cosas");
 
 function calcularTamaño(int $tamaño): string {
   $unidades = ["bytes", "KB", "MB", "GB", "TB"];

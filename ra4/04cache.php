@@ -77,7 +77,7 @@ $ultimaModificacion = gmdate($formatoFecha, time() - 2 * 60 * 60);
 header("Date: $ahora");
 header("Last-modified: $ultimaModificacion");
 
-require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones.php");
+require_once($_SERVER['DOCUMENT_ROOT'] . "/dwes2025/include/funciones.php");
 inicioHtml("Gestión de caché", ["/estilos/general.css"]);
 echo "<header>Probando la caché del navegador</header>";
 echo "<h3>Esta página caduca el $caducidad. ";
